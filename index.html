@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MarketHub - Marketing E-commerce</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container header-grid">
+      <div>
+        <h1>📈 MarketHub</h1>
+        <p>Premium marketing resources & growth services</p>
+      </div>
+      <div class="cart-pill">Cart: 0 items</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h2>Scale Your Marketing Strategy</h2>
+        <p>Access battle-tested playbooks, templates, and tools crafted by marketing leaders.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#testimonials" class="btn btn-outline">See Success Stories</a>
+        </div>
+      </div>
+      <ul class="stats-list">
+        <li><strong>1,200+</strong> Customers</li>
+        <li><strong>4.8★</strong> Rating</li>
+        <li><strong>$10M+</strong> Revenue</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="promo">🔥 NEW: Email Marketing Masterclass 20% off for March only!</div>
+
+  <main class="container main-grid">
+    <aside class="sidebar">
+      <h3>Search & Filter</h3>
+      <input id="search" type="search" placeholder="Search products..." />
+      <label for="sort" class="visually-hidden">Sort Products</label>
+      <select id="sort" class="sort-select">
+        <option value="default">Sort by relevance</option>
+        <option value="priceAsc">Price: low to high</option>
+        <option value="priceDesc">Price: high to low</option>
+      </select>
+      <div class="category-buttons">
+        <button class="active" data-category="all">All</button>
+        <button data-category="Guide">Guide</button>
+        <button data-category="Template">Template</button>
+        <button data-category="Toolkit">Toolkit</button>
+        <button data-category="Service">Service</button>
+      </div>
+    </aside>
+
+    <section id="products" class="product-area">
+      <h3 class="section-title">Product Catalog</h3>
+      <div class="cards-grid">
+        <article class="card" data-price="49" data-category="Guide">
+          <span class="badge">Guide</span>
+          <h4>Growth Marketing Playbook</h4>
+          <p>Actionable strategies to scale brand awareness and acquisition.</p>
+          <div class="product-meta">
+            <span>$49</span>
+            <button class="btn-sm">Add to cart</button>
+          </div>
+        </article>
+        <article class="card" data-price="75" data-category="Template">
+          <span class="badge">Template</span>
+          <h4>Content Funnel Blueprint</h4>
+          <p>Conversion funnel template and automation framework.</p>
+          <div class="product-meta">
+            <span>$75</span>
+            <button class="btn-sm">Add to cart</button>
+          </div>
+        </article>
+        <article class="card" data-price="99" data-category="Toolkit">
+          <span class="badge">Toolkit</span>
+          <h4>Marketing Automation Toolkit</h4>
+          <p>Templates and workflows for campaign optimization.</p>
+          <div class="product-meta">
+            <span>$99</span>
+            <button class="btn-sm">Add to cart</button>
+          </div>
+        </article>
+        <article class="card" data-price="299" data-category="Service">
+          <span class="badge">Service</span>
+          <h4>Quarterly Growth Audit</h4>
+          <p>Expert roadmap & opportunity audit for marketing leaders.</p>
+          <div class="product-meta">
+            <span>$299</span>
+            <button class="btn-sm">Add to cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="cart">
+      <h3>Shopping Cart</h3>
+      <p class="cart-empty">Your cart is empty.</p>
+      <div class="cart-total"><span>Total</span><strong>$0.00</strong></div>
+      <button class="btn btn-primary w-full" disabled>Checkout</button>
+      <button class="btn btn-clear w-full">Clear Cart</button>
+
+      <div class="wishlist-box">
+        <h4>Wishlist</h4>
+        <p class="wishlist-empty">No wishlist items yet.</p>
+        <ul class="wishlist-list"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h3>By Happy Marketing Teams</h3>
+      <div class="test-grid">
+        <blockquote>
+          <p>"This toolkit cut campaign setup time in half. Highly recommend!"</p>
+          <footer>— Sarah C., Marketing Director</footer>
+        </blockquote>
+        <blockquote>
+          <p>"The growth playbook gave us the exact framework we needed to scale."</p>
+          <footer>— James R., Founder</footer>
+        </blockquote>
+        <blockquote>
+          <p>"Professional templates that actually convert. Worth every penny."</p>
+          <footer>— Emily T., Content Manager</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h3>Get Marketing Tips Weekly</h3>
+      <p>Join 5,000+ marketers with actionable strategy updates.</p>
+      <form>
+        <input type="email" placeholder="enter your email" required />
+        <button class="btn btn-secondary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 MarketHub. All rights reserved.</p>
+      <div class="footlinks">
+        <a href="#">About</a><a href="#">Blog</a><a href="#">Contact</a><a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.querySelector("#search");
+    const sortSelect = document.querySelector("#sort");
+    const cardsGrid = document.querySelector(".cards-grid");
+    const cards = Array.from(document.querySelectorAll(".cards-grid .card"));
+    const catButtons = document.querySelectorAll(".category-buttons button");
+    const cartCount = document.querySelector(".cart-pill");
+    const cartEmpty = document.querySelector(".cart-empty");
+    const wishlistEmpty = document.querySelector(".wishlist-empty");
+    const wishlistList = document.querySelector(".wishlist-list");
+    const totalValue = document.querySelector(".cart-total strong");
+    const checkoutBtn = document.querySelector(".btn-primary.w-full");
+    let cart = [];
+    let wishlist = [];
+
+    const productData = [
+      { id: 1, name: "Growth Marketing Playbook", price: 49, category: "Guide" },
+      { id: 2, name: "Content Funnel Blueprint", price: 75, category: "Template" },
+      { id: 3, name: "Marketing Automation Toolkit", price: 99, category: "Toolkit" },
+      { id: 4, name: "Quarterly Growth Audit", price: 299, category: "Service" }
+    ];
+
+    function refreshCart() {
+      const count = cart.reduce((c, item) => c + item.qty, 0);
+      cartCount.textContent = `Cart: ${count} item${count === 1 ? "" : "s"}`;
+      cartEmpty.textContent = count ? `Items: ${count}` : "Your cart is empty.";
+      const total = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+      totalValue.textContent = `$${total.toFixed(2)}`;
+      checkoutBtn.disabled = !count;
+    }
+
+    function refreshWishlist() {
+      if (!wishlist.length) {
+        wishlistEmpty.style.display = "block";
+        wishlistList.innerHTML = "";
+        return;
+      }
+      wishlistEmpty.style.display = "none";
+      wishlistList.innerHTML = wishlist
+        .map((item) => `<li>${item.name} <button data-id="${item.id}" class="small btn-wl-remove">Remove</button></li>`)
+        .join("");
+      document.querySelectorAll(".btn-wl-remove").forEach((button) => {
+        button.addEventListener("click", () => {
+          const id = Number(button.dataset.id);
+          wishlist = wishlist.filter((i) => i.id !== id);
+          refreshWishlist();
+        });
+      });
+    }
+
+    function addToCart(id) {
+      const item = cart.find((i) => i.id === id);
+      if (item) item.qty += 1;
+      else cart.push({ ...productData.find((p) => p.id === id), qty: 1 });
+      refreshCart();
+    }
+
+    function addToWishlist(id) {
+      if (wishlist.some((item) => item.id === id)) return;
+      const item = productData.find((p) => p.id === id);
+      if (item) wishlist.push(item);
+      refreshWishlist();
+    }
+
+    function sortProducts() {
+      const choice = sortSelect.value;
+      const sorted = [...cards].sort((a, b) => {
+        const priceA = Number(a.dataset.price);
+        const priceB = Number(b.dataset.price);
+        if (choice === "priceAsc") return priceA - priceB;
+        if (choice === "priceDesc") return priceB - priceA;
+        return 0;
+      });
+      cardsGrid.innerHTML = "";
+      sorted.forEach((card) => cardsGrid.appendChild(card));
+    }
+
+    function applyCategoryAndSearch() {
+      const cat = document.querySelector(".category-buttons .active").dataset.category;
+      const term = searchInput.value.toLowerCase();
+      cards.forEach((card) => {
+        const title = card.querySelector("h4").textContent.toLowerCase();
+        const desc = card.querySelector("p").textContent.toLowerCase();
+        const matchesSearch = title.includes(term) || desc.includes(term);
+        const matchesCategory = cat === "all" || card.dataset.category === cat;
+        card.style.display = matchesSearch && matchesCategory ? "block" : "none";
+      });
+    }
+
+    document.querySelectorAll(".btn-sm").forEach((btn, index) => {
+      btn.addEventListener("click", () => addToCart(productData[index].id));
+    });
+
+    // Add wishlist buttons dynamically
+    cards.forEach((card, index) => {
+      const wl = document.createElement("button");
+      wl.className = "btn-wishlist";
+      wl.innerText = "♥ Wishlist";
+      wl.addEventListener("click", () => addToWishlist(productData[index].id));
+      card.appendChild(wl);
+    });
+
+    checkoutBtn?.addEventListener("click", () => alert(`Checked out ${totalValue.textContent}.`));
+    document.querySelector(".btn-clear")?.addEventListener("click", () => { cart = []; refreshCart(); });
+
+    catButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        catButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        applyCategoryAndSearch();
+      });
+    });
+
+    searchInput.addEventListener("input", applyCategoryAndSearch);
+    sortSelect.addEventListener("change", sortProducts);
+
+    refreshCart();
+    refreshWishlist();
+  </script>
+</body>
+</html>
